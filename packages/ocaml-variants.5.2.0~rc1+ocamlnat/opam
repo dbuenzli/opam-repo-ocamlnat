@@ -1,0 +1,20 @@
+opam-version: "2.0"
+synopsis: "Official 5.2.0~rc1 release with native toplevel"
+maintainer: "platform@lists.ocaml.org"
+authors: "The OCaml dev team"
+homepage:"http://ocaml.org"
+depends: ["base-unix" "base-bigarray" "base-threads"]
+conflict-class: "ocaml-core-compiler"
+flags: compiler
+setenv: CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"
+build: [
+  ["./configure" "-prefix" prefix "--enable-native-toplevel" ]
+  [make "world"]
+  [make "world.opt"]
+  [make "ocamlnat"]
+]
+install: [make "install"]
+url {
+  src: "https://github.com/ocaml/ocaml/archive/5.2.0-rc1.tar.gz"
+  checksum: "sha512=55026b93aae5a0aa8d24a23478655b9928ce3b2f5a4eb8ab25606a3d46ac528c336b0b8f8c41ddf28f8ba5eb20618be23fbc8efed44a23a041dbed803a01171d"
+}
