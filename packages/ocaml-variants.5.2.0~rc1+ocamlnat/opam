@@ -8,7 +8,7 @@ conflict-class: "ocaml-core-compiler"
 flags: compiler
 setenv: [
  [CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]
- [OCAML_TOPLEVEL_PATH = "%{toplevel}%"]
+ [OCAMLTOP_INCLUDE_PATH = "%{toplevel}%"]
 ]
 build: [
   ["./configure" "-prefix" prefix "--enable-native-toplevel" ]
